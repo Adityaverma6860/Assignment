@@ -11,12 +11,12 @@ const uploadDir = join(__dirname, "../imageUploads/assets");
 console.log(uploadDir);
 
 
-// Ensure the directory exists
+// Ensure the directory exists     
 if (!existsSync(uploadDir)) {
   mkdirSync(uploadDir, { recursive: true });
   console.log(`Created directory: ${uploadDir}`);
 }
-
+//  Multer
 // Multer storage configuration
 const storage = diskStorage({
   destination: (req, file, cb) => {
