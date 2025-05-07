@@ -4,14 +4,18 @@ import connectDB from './src/config/index.js';
 import userRoutes from './src/route/userRoutes.js';
 import employeeRoutes from './src/route/employeeRoutes.js';
 dotenv.config();
+// import { jwtAuthMiddleware } from './src/middleware/jwt.js';
+
 
 
 const PORT = process.env.PORT || 3001;
 
 const app = express();
 app.use(express.json());
-
 app.use('/users', userRoutes);
+
+// app.use(jwtAuthMiddleware);
+
 app.use('/employees', employeeRoutes);
 
 

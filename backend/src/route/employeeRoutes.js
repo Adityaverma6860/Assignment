@@ -9,12 +9,12 @@ import {
     searchEmployees
 } from '../controller/employeeControllers.js';
 import upload from '../middleware/multer.js';
-
+import { jwtAuthMiddleware } from '../middleware/jwt.js';
 
 
 // Route to create a new employee
 router.post('/', upload.single('profilePic'), createEmployee);
-router.get('/', getEmployees);
+router.get('/',jwtAuthMiddleware, getEmployees);
 router.get('/search', searchEmployees);
 router.get('/:id', getEmployeeById);
 router.put('/:id', upload.single('profilePic'), updateEmployee);
